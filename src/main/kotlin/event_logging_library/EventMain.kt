@@ -1,16 +1,15 @@
-package org.example.event_logging_library
+package event_logging_library
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.time.delay
-import org.example.event_logging_library.model.Event
-import org.example.event_logging_library.model.ScreenEvent
-import org.example.event_logging_library.model.UserProperty
-import org.example.event_logging_library.service.EventDispatcher
-import org.example.event_logging_library.service.EventLoggerImpl
-import org.example.event_logging_library.strategy.AnalyticsProvider
-import org.example.event_logging_library.strategy.FirebaseProvider
-import org.example.event_logging_library.strategy.MixPanelProvider
+import event_logging_library.model.Event
+import event_logging_library.model.ScreenEvent
+import event_logging_library.model.UserProperty
+import event_logging_library.service.EventDispatcher
+import event_logging_library.service.EventLoggerImpl
+import event_logging_library.strategy.AnalyticsProvider
+import event_logging_library.strategy.FirebaseProvider
+import event_logging_library.strategy.MixPanelProvider
 
 class EventMain {
     fun main() = runBlocking {
