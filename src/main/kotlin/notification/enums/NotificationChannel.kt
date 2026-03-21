@@ -1,4 +1,4 @@
-package org.example.notification.enums
+package notification.enums
 
 enum class NotificationChannel{
     SMS, EMAIL, PUSH, IN_APP

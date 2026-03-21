@@ -1,8 +1,8 @@
-package org.example.notification.service
+package notification.service
 
-import org.example.notification.enums.NotificationChannel
-import org.example.notification.models.Notification
-import org.example.notification.strategy.notification_strategy.NotificationStrategy
+import notification.enums.NotificationChannel
+import notification.models.Notification
+import notification.strategy.notification_strategy.NotificationStrategy
 
 class NotificationRouter(
     private val services: List<NotificationStrategy>

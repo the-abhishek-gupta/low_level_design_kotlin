@@ -1,4 +1,4 @@
-package org.example.cache
+package cache
 
 class Cache(capacity: Int = 5) {
     private val capacity = capacity.coerceAtLeast(0)

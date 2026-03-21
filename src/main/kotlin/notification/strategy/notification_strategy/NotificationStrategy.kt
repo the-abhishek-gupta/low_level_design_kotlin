@@ -1,7 +1,7 @@
-package org.example.notification.strategy.notification_strategy
+package notification.strategy.notification_strategy
 
-import org.example.notification.enums.NotificationChannel
-import org.example.notification.models.Notification
+import notification.enums.NotificationChannel
+import notification.models.Notification
 
 interface NotificationStrategy {
     fun supports(channel: NotificationChannel): Boolean

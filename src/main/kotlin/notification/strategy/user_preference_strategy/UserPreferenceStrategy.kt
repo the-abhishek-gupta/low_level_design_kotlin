@@ -1,6 +1,6 @@
-package org.example.notification.strategy.user_preference_strategy
+package notification.strategy.user_preference_strategy
 
-import org.example.notification.models.UserPreferences
+import notification.models.UserPreferences
 
 interface UserPreferenceStrategy{
     fun getPreference(id: String) : UserPreferences

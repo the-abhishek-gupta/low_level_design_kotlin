@@ -1,13 +1,13 @@
-package org.example.notification
+package notification
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import org.example.notification.models.Notification
-import org.example.notification.service.NotificationRouter
-import org.example.notification.service.RetryService
-import org.example.notification.strategy.user_preference_strategy.UserPreferenceStrategy
+import notification.models.Notification
+import notification.service.NotificationRouter
+import notification.service.RetryService
+import notification.strategy.user_preference_strategy.UserPreferenceStrategy
 
 class NotificationManager(
     private val router: NotificationRouter,

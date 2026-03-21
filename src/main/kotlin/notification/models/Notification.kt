@@ -1,10 +1,10 @@
-package org.example.notification.models
+package notification.models
 
-import org.example.notification.enums.NotificationChannel
+import notification.enums.NotificationChannel
 import java.util.UUID
 
 data class Notification(
-    private val id: String = UUID.randomUUID().toString(),
+    val id: String = UUID.randomUUID().toString(),
     val recipientId: String,
     val title: String,
     val message: String,

@@ -1,5 +1,5 @@
-package org.example.notification.models
+package notification.models
 
-import org.example.notification.enums.NotificationChannel
+import notification.enums.NotificationChannel
 
 data class UserPreferences(val userId: String, val enabledChannels: Set<NotificationChannel>)

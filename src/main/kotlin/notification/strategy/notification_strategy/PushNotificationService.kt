@@ -1,8 +1,7 @@
-package org.example.notification.service.notification_service
+package notification.strategy.notification_strategy
 
-import org.example.notification.enums.NotificationChannel
-import org.example.notification.models.Notification
-import org.example.notification.strategy.notification_strategy.NotificationStrategy
+import notification.enums.NotificationChannel
+import notification.models.Notification
 
 class PushNotificationService : NotificationStrategy {
     override fun supports(channel: NotificationChannel) = channel == NotificationChannel.PUSH

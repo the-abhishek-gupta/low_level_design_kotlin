@@ -1,6 +1,6 @@
 package parkinglot.main
 
-import VehicleType
+import parkinglot.enums.VehicleType
 import parkinglot.ParkingManager
 import parkinglot.PricingEngine
 import parkinglot.data.index.SpotIndex

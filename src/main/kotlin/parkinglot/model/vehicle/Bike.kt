@@ -1,5 +1,5 @@
 package parkinglot.model.vehicle
 
-import VehicleType
+import parkinglot.enums.VehicleType
 
 class Bike(bikeNumber : String) : Vehicle(bikeNumber, VehicleType.BIKE)

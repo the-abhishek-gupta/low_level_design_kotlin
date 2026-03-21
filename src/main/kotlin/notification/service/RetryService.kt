@@ -1,4 +1,4 @@
-package org.example.notification.service
+package notification.service
 
 class RetryService(
     private val maxRetries: Int = 3

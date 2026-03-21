@@ -1,3 +1,3 @@
-package org.example.event_logging_library.model
+package event_logging_library.model
 
 data class UserProperty(val key: String, val value: String)

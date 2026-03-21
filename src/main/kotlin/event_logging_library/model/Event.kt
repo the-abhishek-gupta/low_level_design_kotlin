@@ -1,4 +1,4 @@
-package org.example.event_logging_library.model
+package event_logging_library.model
 
 data class Event(
     val eventName: String,

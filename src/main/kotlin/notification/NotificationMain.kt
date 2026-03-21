@@ -1,15 +1,15 @@
-package org.example.notification
+package notification
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import org.example.notification.enums.NotificationChannel
-import org.example.notification.models.Notification
-import org.example.notification.service.NotificationRouter
-import org.example.notification.service.RetryService
-import org.example.notification.service.notification_service.EmailNotificationService
-import org.example.notification.service.notification_service.PushNotificationService
-import org.example.notification.service.notification_service.SMSNotificationService
-import org.example.notification.service.user_preference.DefaultUserPreference
+import notification.enums.NotificationChannel
+import notification.models.Notification
+import notification.service.NotificationRouter
+import notification.service.RetryService
+import notification.strategy.notification_strategy.EmailNotificationService
+import notification.strategy.notification_strategy.PushNotificationService
+import notification.strategy.notification_strategy.SMSNotificationService
+import notification.strategy.user_preference_strategy.DefaultUserPreference
 
 class NotificationMain {
     fun main() = runBlocking {

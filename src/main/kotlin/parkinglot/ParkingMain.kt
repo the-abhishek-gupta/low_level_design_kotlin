@@ -1,6 +1,6 @@
 package parkinglot
 
-import VehicleType
+import parkinglot.enums.VehicleType
 import parkinglot.data.index.SpotIndex
 import parkinglot.model.parking.ParkingFloor
 import parkinglot.model.parking.ParkingLot

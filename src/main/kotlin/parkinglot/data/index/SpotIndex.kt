@@ -1,6 +1,6 @@
 package parkinglot.data.index
 
-import VehicleType
+import parkinglot.enums.VehicleType
 import parkinglot.model.parking.ParkingSpot
 import java.util.*
 

@@ -1,10 +1,10 @@
-package org.example.event_logging_library.service
+package event_logging_library.service
 
 import kotlinx.coroutines.supervisorScope
-import org.example.event_logging_library.model.Event
-import org.example.event_logging_library.model.ScreenEvent
-import org.example.event_logging_library.model.UserProperty
-import org.example.event_logging_library.strategy.AnalyticsProvider
+import event_logging_library.model.Event
+import event_logging_library.model.ScreenEvent
+import event_logging_library.model.UserProperty
+import event_logging_library.strategy.AnalyticsProvider
 
 class EventDispatcher(
     private val providers: List<AnalyticsProvider>

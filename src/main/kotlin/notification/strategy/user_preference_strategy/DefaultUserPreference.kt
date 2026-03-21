@@ -1,8 +1,7 @@
-package org.example.notification.service.user_preference
+package notification.strategy.user_preference_strategy
 
-import org.example.notification.enums.NotificationChannel
-import org.example.notification.models.UserPreferences
-import org.example.notification.strategy.user_preference_strategy.UserPreferenceStrategy
+import notification.enums.NotificationChannel
+import notification.models.UserPreferences
 
 class DefaultUserPreference : UserPreferenceStrategy {
     override fun getPreference(id: String): UserPreferences {
