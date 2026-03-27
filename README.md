@@ -1,44 +1,61 @@
 # Low Level Design Practice in Kotlin
 
-This repository is my Kotlin workspace for practicing low level design problems and building small, design-focused systems from scratch.
+This repository is a Kotlin workspace for practicing low level design problems by building small, self-contained systems from scratch.
 
-The goal here is not production completeness. It is to explore:
+The focus here is on:
 
 - object modeling
 - interface-driven design
-- composition over rigid inheritance
+- composition over inheritance
 - strategy-based extensibility
-- asynchronous workflows with coroutines
+- in-memory repositories and service orchestration
+- asynchronous flows where they make sense
 
-## Current Exercises
+## Problems Implemented
 
-### 1. Notification System
+The repository currently contains these exercises under `src/main/kotlin`:
 
-Located under [`src/main/kotlin/notification`](/Users/abhi/Desktop/Projects/low_level_design_kotlin/src/main/kotlin/notification)
+| Problem | Path | Demo Entry Point |
+| --- | --- | --- |
+| Autocomplete | `autocomplete` | `autocomplete/AutoCompleteMain.kt` |
+| BookMyShow | `bookmyshow` | module code only |
+| Cache | `cache` | module code only |
+| Ecommerce | `ecommerce` | `ecommerce/ECommerceMain.kt` |
+| Event Logging Library | `event_logging_library` | `event_logging_library/EventMain.kt` |
+| Flight Aggregator System | `flight_aggregator_system` | `flight_aggregator_system/FlightServiceManager.kt` |
+| Food Delivery System | `food_delivery_system` | `food_delivery_system/FoodDeliveryMain.kt` |
+| Message Broker / Pub-Sub | `message_broker` | `message_broker/PubSubMain.kt` |
+| Notification System | `notification` | `notification/NotificationMain.kt` |
+| Parking Lot (legacy/simple) | `parking_lot` | module code only |
+| Parking Lot (strategy-based) | `parkinglot` | `parkinglot/ParkingMain.kt`, `parkinglot/main/ParkingLotMain.kt` |
+| Property Listing | `property_listing` | `property_listing/PropertyListingMain.kt` |
+| Rate Limiter | `rate_limiter` | `rate_limiter/RateLimiterMain.kt` |
+| Ride Hailing System | `ride_hailing_system` | `ride_hailing_system/RideHailingServiceMain.kt` |
+| Splitwise | `splitwise` | `splitwise/SplitWiseMain.kt` |
+
+## Notable Modules
+
+### Notification System
+
+Path: [`src/main/kotlin/notification`](src/main/kotlin/notification)
 
 This module models a notification pipeline with:
 
 - multiple delivery channels: `SMS`, `PUSH`, and `EMAIL`
-- routing based on supported notification channels
+- routing based on supported channels
 - user preference filtering
 - retry handling
 - coroutine-based background dispatch
 
-Core classes:
+Key classes:
 
-- [`NotificationManager`](/Users/abhi/Desktop/Projects/low_level_design_kotlin/src/main/kotlin/notification/NotificationManager.kt)
-- [`NotificationRouter`](/Users/abhi/Desktop/Projects/low_level_design_kotlin/src/main/kotlin/notification/service/NotificationRouter.kt)
-- [`RetryService`](/Users/abhi/Desktop/Projects/low_level_design_kotlin/src/main/kotlin/notification/service/RetryService.kt)
+- [`NotificationManager`](src/main/kotlin/notification/NotificationManager.kt)
+- [`NotificationRouter`](src/main/kotlin/notification/service/NotificationRouter.kt)
+- [`RetryService`](src/main/kotlin/notification/service/RetryService.kt)
 
-Design ideas practiced:
+### Event Logging Library
 
-- Strategy Pattern for channel-specific notification services
-- separation of orchestration, routing, and preference resolution
-- fault isolation around external delivery operations
-
-### 2. Event Logging Library
-
-Located under [`src/main/kotlin/event_logging_library`](/Users/abhi/Desktop/Projects/low_level_design_kotlin/src/main/kotlin/event_logging_library)
+Path: [`src/main/kotlin/event_logging_library`](src/main/kotlin/event_logging_library)
 
 This module models a lightweight analytics/event logging SDK with:
 
@@ -47,17 +64,33 @@ This module models a lightweight analytics/event logging SDK with:
 - fan-out dispatch to different backends
 - coroutine-based async logging
 
-Core classes:
+Key classes:
 
-- [`EventLogger`](/Users/abhi/Desktop/Projects/low_level_design_kotlin/src/main/kotlin/event_logging_library/EventLogger.kt)
-- [`EventLoggerImpl`](/Users/abhi/Desktop/Projects/low_level_design_kotlin/src/main/kotlin/event_logging_library/service/EventLoggerImpl.kt)
-- [`EventDispatcher`](/Users/abhi/Desktop/Projects/low_level_design_kotlin/src/main/kotlin/event_logging_library/service/EventDispatcher.kt)
+- [`EventLogger`](src/main/kotlin/event_logging_library/EventLogger.kt)
+- [`EventLoggerImpl`](src/main/kotlin/event_logging_library/service/EventLoggerImpl.kt)
+- [`EventDispatcher`](src/main/kotlin/event_logging_library/service/EventDispatcher.kt)
 
-Design ideas practiced:
+### Ride Hailing System
 
-- abstraction over third-party providers
-- interface-based extensibility
-- centralized dispatch with isolated provider failures
+Path: [`src/main/kotlin/ride_hailing_system`](src/main/kotlin/ride_hailing_system)
+
+This module models a simple ride-booking workflow with:
+
+- rider and driver registration
+- nearest-driver matching strategy
+- fare calculation strategy
+- ride lifecycle management
+
+### Property Listing
+
+Path: [`src/main/kotlin/property_listing`](src/main/kotlin/property_listing)
+
+This module models a property marketplace with:
+
+- property listing by owners
+- search criteria filtering
+- sorting by different fields
+- property status transitions
 
 ## Tech Stack
 
@@ -65,23 +98,37 @@ Design ideas practiced:
 - Gradle Kotlin DSL
 - Kotlin Coroutines
 
-The project is configured with:
+Current project configuration:
 
-- Kotlin `2.3.0`
-- Coroutines `1.10.2`
-- JVM toolchain `24`
+- Kotlin `1.9.24`
+- Coroutines `1.8.1`
+- JVM toolchain `8`
+
+See [`build.gradle.kts`](build.gradle.kts) for the source of truth.
 
 ## Project Structure
 
 ```text
 src/main/kotlin/
-├── event_logging_library/
-├── notification/
+├── autocomplete/
+├── bookmyshow/
 ├── cache/
+├── ecommerce/
+├── event_logging_library/
+├── flight_aggregator_system/
+├── food_delivery_system/
+├── message_broker/
+├── notification/
+├── parking_lot/
+├── parkinglot/
+├── property_listing/
+├── rate_limiter/
+├── ride_hailing_system/
+├── splitwise/
 └── Main.kt
 ```
 
-`Main.kt` is still the default starter file and can be cleaned up later as the repo evolves.
+[`Main.kt`](src/main/kotlin/Main.kt) currently launches the ride hailing demo.
 
 ## Running the Project
 
@@ -91,26 +138,45 @@ Build the project:
 ./gradlew build
 ```
 
-If you want to explore specific exercises, the simplest option right now is to run the corresponding Kotlin entry file from IntelliJ:
+The project is configured with `application.mainClass = "MainKt"`, so running:
 
-- [`NotificationMain.kt`](/Users/abhi/Desktop/Projects/low_level_design_kotlin/src/main/kotlin/notification/NotificationMain.kt)
-- [`EventMain.kt`](/Users/abhi/Desktop/Projects/low_level_design_kotlin/src/main/kotlin/event_logging_library/EventMain.kt)
+```bash
+./gradlew run
+```
+
+will execute [`src/main/kotlin/Main.kt`](src/main/kotlin/Main.kt), which currently delegates to the ride hailing example.
+
+If you want to explore specific exercises, the simplest option right now is to run the corresponding entry file from IntelliJ:
+
+- [`src/main/kotlin/notification/NotificationMain.kt`](src/main/kotlin/notification/NotificationMain.kt)
+- [`src/main/kotlin/event_logging_library/EventMain.kt`](src/main/kotlin/event_logging_library/EventMain.kt)
+- [`src/main/kotlin/ride_hailing_system/RideHailingServiceMain.kt`](src/main/kotlin/ride_hailing_system/RideHailingServiceMain.kt)
+- [`src/main/kotlin/property_listing/PropertyListingMain.kt`](src/main/kotlin/property_listing/PropertyListingMain.kt)
+- [`src/main/kotlin/rate_limiter/RateLimiterMain.kt`](src/main/kotlin/rate_limiter/RateLimiterMain.kt)
+- [`src/main/kotlin/message_broker/PubSubMain.kt`](src/main/kotlin/message_broker/PubSubMain.kt)
+- [`src/main/kotlin/food_delivery_system/FoodDeliveryMain.kt`](src/main/kotlin/food_delivery_system/FoodDeliveryMain.kt)
+- [`src/main/kotlin/flight_aggregator_system/FlightServiceManager.kt`](src/main/kotlin/flight_aggregator_system/FlightServiceManager.kt)
+- [`src/main/kotlin/splitwise/SplitWiseMain.kt`](src/main/kotlin/splitwise/SplitWiseMain.kt)
+- [`src/main/kotlin/ecommerce/ECommerceMain.kt`](src/main/kotlin/ecommerce/ECommerceMain.kt)
+- [`src/main/kotlin/autocomplete/AutoCompleteMain.kt`](src/main/kotlin/autocomplete/AutoCompleteMain.kt)
+- [`src/main/kotlin/parkinglot/ParkingMain.kt`](src/main/kotlin/parkinglot/ParkingMain.kt)
+- [`src/main/kotlin/parkinglot/main/ParkingLotMain.kt`](src/main/kotlin/parkinglot/main/ParkingLotMain.kt)
 
 ## Why This Repo Exists
 
-I am using this project to improve at:
+I use this project to practice:
 
-- translating requirements into clean domain models
-- identifying reusable abstractions
+- translating requirements into domain models
+- choosing clean abstractions
 - applying common design patterns in Kotlin
-- structuring code for extension without heavy coupling
+- structuring code for extension without tight coupling
 
-## Next Improvements
+## Gaps and Next Improvements
 
-Some natural next steps for this repo:
+Some useful next steps for this repository:
 
-- add unit tests for each exercise
-- add more LLD problems such as parking lot, rate limiter, elevator system, or splitwise
-- standardize package naming and entry points
-- add a dedicated `app` or demo runner setup for each exercise
-
+- add automated tests under `src/test`
+- standardize package naming such as `parking_lot` vs `parkinglot`
+- make demo entry points consistent across modules
+- document the main design patterns used in each exercise
+- add a root index for completed vs in-progress problems
